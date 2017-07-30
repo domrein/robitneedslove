@@ -1,0 +1,30 @@
+have shapes shift from happy to angry (you want to touch them when they're happy, avoid when angry)
+shield that regenerates (so you have to get hit twice pretty quickly)
+alternate what's coming onscreen (like sometimes only left and right come, or top and right)
+
+powerups
+  shield (let's you take one damage before dying)
+  shrinky (makes you and everything else? smaller)
+  shooty (little guy that flies around you shooting stuff)
+  nova (blasts out ring that kills everything)
+  glutton (makes you eat everything you touch)
+  pukey (makes the square puke)
+mutators (change the rules of the game)
+  change incoming directions
+  speed up
+  speed down
+  color swap (inverts all colors)
+  rocky (stationary piece that breaks against other pieces)
+  moves your guy (squarey)
+fatty piece (just double size)
+
+story
+  story is revealed somehow
+
+progression
+  mutators and powerups are unlocked as you play
+  you're points go into a bar so you can see the unlocks
+
+ads
+  need an ad or some way to make money on the app
+    in between rounds?

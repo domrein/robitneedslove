@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Robit Needs Love</title>
+    <!-- core  tier 1 -->
+    <script src="../pxl/core/Globals.js"></script>
+    <!-- core tier 2 -->
+    <script src="../pxl/actor/Actor.js"></script>
+    <script src="../pxl/actor/Brain.js"></script>
+    <script src="../pxl/actor/Graphic.js"></script>
+    <script src="../pxl/core/AudioMixer.js"></script>
+    <script src="../pxl/core/Beacon.js"></script>
+    <script src="../pxl/core/Canvas2dRenderer.js"></script>
+    <script src="../pxl/core/DataStore.js"></script>
+    <script src="../pxl/core/Game.js"></script>
+    <script src="../pxl/core/InputRelay.js"></script>
+    <script src="../pxl/core/Point.js"></script>
+    <script src="../pxl/core/Preloader.js"></script>
+    <script src="../pxl/core/SaveData.js"></script>
+    <script src="../pxl/core/SpriteStore.js"></script>
+    <script src="../pxl/core/Tween.js"></script>
+    <script src="../pxl/core/Vector.js"></script>
+    <script src="../pxl/scene/Camera.js"></script>
+    <script src="../pxl/scene/Input.js"></script>
+    <script src="../pxl/scene/Physics.js"></script>
+    <script src="../pxl/scene/Scene.js"></script>
+    <script src="../pxl/scene/SceneDirector.js"></script>
+    <!-- core tier 3 -->
+    <script src="../pxl/actor/ColorRectangle.js"></script>
+    <script src="../pxl/actor/Sprite.js"></script>
+    <script src="../pxl/actor/Text.js"></script>
+    <script src="../pxl/core/Rectangle.js"></script>
+    <!-- core tier 4 -->
+    <script src="../pxl/actor/Body.js"></script>
+    <!-- game tier 1 -->
+    <script src="code/actor/Robot.js"></script>
+    <script src="code/actor/Laser.js"></script>
+    <script src="code/actor/Bat.js"></script>
+    <script src="code/actor/Battery.js"></script>
+    <script src="code/actor/Mote.js"></script>
+    <script src="code/actor/Terminal.js"></script>
+    <script src="code/scene/PlayScene.js"></script>
+    <script src="code/Game.js"></script>
+  </head>
+  <body style="margin: 0; background-color: #000;" onkeydown="onFullscreen(event)">
+    <canvas id="canvas"></canvas>
+    <script src="index.js"></script>
+    <script>
+      function onFullscreen(event) {
+        // if (event.keyCode === 70) {
+        //   const elem = document.getElementById("canvas");
+        //   if (document.webkitFullscreenElement) {
+        //     document.webkitExitFullscreen();
+        //   }
+        //   else {
+        //     elem.webkitRequestFullscreen();
+        //   }
+        // }
+      }
+    </script>
+  </body>
+</html>
