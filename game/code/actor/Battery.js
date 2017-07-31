@@ -9,6 +9,8 @@ class Battery extends Pxl.Actor {
   constructor(scene) {
     super(scene);
 
+    this.life = 300;
+
     this.body = new Pxl.Body();
     this.body.width = 8;
     this.body.height = 8;
@@ -25,6 +27,11 @@ class Battery extends Pxl.Actor {
 
   update() {
     super.update();
+
+    this.life--;
+    if (!this.life) {
+      this.alive = false;
+    }
 
     // lock to screen
     if (this.body.x + 8 > this.scene.game.width) {

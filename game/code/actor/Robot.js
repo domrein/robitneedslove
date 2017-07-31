@@ -9,7 +9,8 @@ class Robot extends Pxl.Actor {
   constructor(scene) {
     super(scene);
 
-    this.batteryCount = 0;
+    this.batteryCount = 10;
+    this.damageCount = 0;
 
     this.body = new Pxl.Body();
     this.body.width = this.body.height = 16;
@@ -46,11 +47,39 @@ class Robot extends Pxl.Actor {
     this.graphics.push(this.burstSprite);
   }
 
-  update() {
-    super.update();
+  get headRect() {
+    const rect = new Pxl.Rectangle();
+    rect.x = this.body.x;
+    rect.y = this.body.y + this.headSprite.offset.y;
+    rect.width = 16;
+    rect.height = 16;
+
+    return rect;
   }
 
-  moveHead(up) {
+  update() {
+    super.update();
+
+    if (this.damageCount) {
+      this.damageCount--;
+      if (this.damageCount % 8 === 0) {
+        this.poop(true);
+      }
+      this.moveHead(false, true);
+    }
+  }
+
+  takeDamage() {
+    if (!this.damageCount) {
+      this.damageCount = 90;
+    }
+  }
+
+  moveHead(up, force) {
+    if (this.damageCount && !force) {
+      return;
+    }
+
     up ? this.headSprite.offset.y -= 2 : this.headSprite.offset.y += 2;
     if (this.headSprite.offset.y > -9) {
       this.headSprite.offset.y = -9;
@@ -66,6 +95,10 @@ class Robot extends Pxl.Actor {
   }
 
   moveBody(left) {
+    if (this.damageCount) {
+      return;
+    }
+
     this.flipped = !left;
     if (left) {
       this.body.x -= 1;
@@ -86,6 +119,10 @@ class Robot extends Pxl.Actor {
   }
 
   fire() {
+    if (this.damageCount) {
+      return;
+    }
+
     this.burstSprite.play("burst");
     const laser = new Laser(this.scene);
     laser.body.velocity.d = this.flipped ? 0 : Math.PI;
@@ -95,7 +132,11 @@ class Robot extends Pxl.Actor {
     this.scene.game.audioMixer.play("laser");
   }
 
-  poop() {
+  poop(force) {
+    if (this.damageCount && !force) {
+      return;
+    }
+
     if (this.batteryCount) {
       this.batteryCount--;
       const battery = new Battery(this.scene);

@@ -40,10 +40,38 @@ class PlayScene extends Pxl.Scene {
     terminal.body.y = 150;
     terminal.graphics[0].z = -1;
     this.addActor(terminal);
+
+    const actor = new Pxl.Actor(this);
+    actor.body = new Pxl.Body();
+    actor.body.x = 3;
+    actor.body.y = 3;
+    this.scoreText = new Pxl.Text(actor);
+    this.scoreText.prefix = "Score: ";
+    this.scoreText.text = 0;
+    this.scoreText.size = 10;
+    this.scoreText.z = 3;
+    actor.graphics.push(this.scoreText);
+    this.addActor(actor);
+
+    this.count = 0;
+    this.spawnRate = 0.99;
+    this.lastSpawnCount = 0;
+    this.score = 0;
   }
 
   update() {
     super.update();
+
+    this.count++;
+    this.lastSpawnCount++;
+
+    if (this.count % 300 === 0) {
+      this.spawnRate -= 0.001;
+    }
+    if (this.count % 60 === 0) {
+      this.score++;
+      this.scoreText.text = this.score;
+    }
 
     // lock player to screen
     if (this.player.body.x < 24) {
@@ -81,7 +109,8 @@ class PlayScene extends Pxl.Scene {
       mote.body.y = Math.random() * this.game.height;
       this.addActor(mote);
     }
-    if (Math.random() > 0.99) {
+    if (Math.random() > this.spawnRate || this.lastSpawnCount > 60) {
+      this.lastSpawnCount = 0;
       const bat = new Bat(this);
       this.addActor(bat);
     }

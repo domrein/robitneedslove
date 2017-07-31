@@ -35,6 +35,9 @@ class Bat extends Pxl.Actor {
     if (this.body.x < -100 || this.body.x > this.scene.game.width + 100) {
       this.alive = false;
     }
+    if (this.body.intersects(this.scene.player.headRect)) {
+      this.scene.player.takeDamage();
+    }
   }
 
   onCollided() {
