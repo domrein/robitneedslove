@@ -19,6 +19,7 @@ class Laser extends Pxl.Actor {
     this.graphics.push(new Pxl.Sprite(this));
     this.graphics[0].offset.y = -6;
     this.graphics[0].play("laser");
+    this.hitSomething = false;
   }
 
   update() {

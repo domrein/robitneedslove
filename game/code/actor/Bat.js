@@ -40,18 +40,21 @@ class Bat extends Pxl.Actor {
     }
   }
 
-  onCollided() {
+  onCollided(target, collidee) {
     // take a few hits to die?
     // drop battery
-    this.alive = false;
-    for (let i = 0; i < ~~(Math.random() * 2); i++) {
-      const battery = new Battery(this.scene);
-      battery.body.x = this.body.x;
-      battery.body.y = this.body.y;
-      battery.body.velocity.d = Math.random() * Math.PI * 1.75 + Math.PI * .5;
-      battery.body.velocity.m = 3;
-      this.scene.addActor(battery);
+    if (!collidee.hitSomething) {
+      collidee.hitSomething = true;
+      this.alive = false;
+      for (let i = 0; i < ~~(Math.random() * 2); i++) {
+        const battery = new Battery(this.scene);
+        battery.body.x = this.body.x;
+        battery.body.y = this.body.y;
+        battery.body.velocity.d = Math.random() * Math.PI * 1.75 + Math.PI * .5;
+        battery.body.velocity.m = 3;
+        this.scene.addActor(battery);
+      }
+      this.scene.game.audioMixer.play("enemyDie");
     }
-    this.scene.game.audioMixer.play("enemyDie");
   }
 }
