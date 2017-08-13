@@ -9,7 +9,7 @@ class Robot extends Pxl.Actor {
   constructor(scene) {
     super(scene);
 
-    this.batteryCount = 10;
+    this.batteryCount = 0;
     this.damageCount = 0;
 
     this.body = new Pxl.Body();
@@ -160,7 +160,7 @@ class Robot extends Pxl.Actor {
     this.scene.game.audioMixer.play("robotBatteryGet");
   }
 
-  onCollided(targer, collidee) {
+  onCollided(target, collidee) {
     if (collidee.type === "battery") {
       this.getBattery();
     }
