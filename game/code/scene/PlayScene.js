@@ -3,9 +3,19 @@ Paul Milham
 7/29/17
 */
 
-"use strict";
+import Scene from "../../../pxl/scene/Scene.js";
+import Actor from "../../../pxl/actor/Actor.js";
+import Body from "../../../pxl/actor/Body.js";
+import Sprite from "../../../pxl/actor/Sprite.js";
+import Text from "../../../pxl/actor/Text.js";
 
-class PlayScene extends Pxl.Scene {
+import Terminal from "../actor/Terminal.js";
+import Mote from "../actor/Mote.js";
+import Robot from "../actor/Robot.js";
+import Bat from "../actor/Bat.js";
+import Laser from "../actor/Laser.js";
+
+export default class PlayScene extends Scene {
   constructor(game) {
     super(game);
 
@@ -17,9 +27,9 @@ class PlayScene extends Pxl.Scene {
 
     this.input.beacon.observe(this, "keyPressed", this.onKeyPressed);
 
-    const background = new Pxl.Actor(this);
-    background.body = new Pxl.Body();
-    background.graphics.push(new Pxl.Sprite(background));
+    const background = new Actor(this);
+    background.body = new Body();
+    background.graphics.push(new Sprite(background));
     background.graphics[0].play("background");
     background.graphics[0].z = -1;
     this.addActor(background);
@@ -29,9 +39,9 @@ class PlayScene extends Pxl.Scene {
     this.player.body.y = 195;
     this.addActor(this.player);
 
-    const foreground = new Pxl.Actor(this);
-    foreground.body = new Pxl.Body();
-    foreground.graphics.push(new Pxl.Sprite(foreground));
+    const foreground = new Actor(this);
+    foreground.body = new Body();
+    foreground.graphics.push(new Sprite(foreground));
     foreground.graphics[0].play("foreground");
     foreground.graphics[0].z = 2;
     this.addActor(foreground);
@@ -41,11 +51,11 @@ class PlayScene extends Pxl.Scene {
     terminal.graphics[0].z = -1;
     this.addActor(terminal);
 
-    const actor = new Pxl.Actor(this);
-    actor.body = new Pxl.Body();
+    const actor = new Actor(this);
+    actor.body = new Body();
     actor.body.x = 3;
     actor.body.y = 3;
-    this.scoreText = new Pxl.Text(actor);
+    this.scoreText = new Text(actor);
     this.scoreText.prefix = "Score: ";
     this.scoreText.text = 0;
     this.scoreText.size = 10;

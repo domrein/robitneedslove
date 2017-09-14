@@ -3,52 +3,59 @@ Paul Milham
 7/29/17
 */
 
-"use strict";
+import Actor from "../../../pxl/actor/Actor.js";
+import Sprite from "../../../pxl/actor/Sprite.js";
+import Body from "../../../pxl/actor/Body.js";
+import ColorRectangle from "../../../pxl/actor/ColorRectangle.js";
+import Rectangle from "../../../pxl/core/Rectangle.js";
 
-class Robot extends Pxl.Actor {
+import Laser from "./Laser.js";
+import Battery from "./Battery.js";
+
+export default class Robot extends Actor {
   constructor(scene) {
     super(scene);
 
     this.batteryCount = 0;
     this.damageCount = 0;
 
-    this.body = new Pxl.Body();
+    this.body = new Body();
     this.body.width = this.body.height = 16;
     this.body.beacon.observe(this, "collided", this.onCollided);
     this.body.type = "player";
 
-    this.bodySprite = new Pxl.Sprite(this);
+    this.bodySprite = new Sprite(this);
     this.bodySprite.offset.y = -1;
     this.bodySprite.play("robotBody");
     this.graphics.push(this.bodySprite);
 
-    this.headSprite = new Pxl.Sprite(this);
+    this.headSprite = new Sprite(this);
     this.headSprite.offset.y = -9;
     this.headSprite.play("robotHead");
     this.graphics.push(this.headSprite);
 
-    this.neckGraphic = new Pxl.ColorRectangle(this);
+    this.neckGraphic = new ColorRectangle(this);
     this.neckGraphic.offset.x = 7;
     this.neckGraphic.width = 2;
     this.neckGraphic.height = 0;
     this.neckGraphic.color = "#696A6A";
     this.graphics.push(this.neckGraphic);
 
-    this.neckGraphicShadow = new Pxl.ColorRectangle(this);
+    this.neckGraphicShadow = new ColorRectangle(this);
     this.neckGraphicShadow.offset.x = 8;
     this.neckGraphicShadow.width = 1;
     this.neckGraphicShadow.height = 0;
     this.neckGraphicShadow.color = "#595652";
     this.graphics.push(this.neckGraphicShadow);
 
-    this.burstSprite = new Pxl.Sprite(this);
+    this.burstSprite = new Sprite(this);
     this.burstSprite.play("burst");
     this.burstSprite.offset.y = this.headSprite.offset.y - 2;
     this.graphics.push(this.burstSprite);
   }
 
   get headRect() {
-    const rect = new Pxl.Rectangle();
+    const rect = new Rectangle();
     rect.x = this.body.x;
     rect.y = this.body.y + this.headSprite.offset.y;
     rect.width = 16;

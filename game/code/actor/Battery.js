@@ -3,23 +3,26 @@ Paul Milham
 7/30/17
 */
 
-"use strict";
+import Actor from "../../../pxl/actor/Actor.js";
+import Body from "../../../pxl/actor/Body.js";
+import Vector from "../../../pxl/core/Vector.js";
+import Sprite from "../../../pxl/actor/Sprite.js";
 
-class Battery extends Pxl.Actor {
+export default class Battery extends Actor {
   constructor(scene) {
     super(scene);
 
     this.life = 300;
 
-    this.body = new Pxl.Body();
+    this.body = new Body();
     this.body.width = 8;
     this.body.height = 8;
-    this.body.gravity = new Pxl.Vector(.1, Math.PI * .5);
+    this.body.gravity = new Vector(.1, Math.PI * .5);
 
     this.body.beacon.observe(this, "collided", this.onCollided);
     this.body.type = "battery";
 
-    this.graphics.push(new Pxl.Sprite(this));
+    this.graphics.push(new Sprite(this));
     this.graphics[0].offset.x = -6;
     this.graphics[0].play("battery");
     this.floor = Math.random() * 4 + 189;

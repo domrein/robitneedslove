@@ -3,23 +3,27 @@ Paul Milham
 7/30/17
 */
 
-"use strict";
+import Actor from "../../../pxl/actor/Actor.js";
+import Body from "../../../pxl/actor/Body.js";
+import Sprite from "../../../pxl/actor/Sprite.js";
 
-class Terminal extends Pxl.Actor {
+import PlayScene from "../scene/PlayScene.js";
+
+export default class Terminal extends Actor {
   constructor(scene) {
     super(scene);
 
-    this.body = new Pxl.Body();
+    this.body = new Body();
     this.body.width = 13;
     this.body.height = 48;
 
     this.body.beacon.observe(this, "collided", this.onCollided);
     this.body.type = "terminal";
 
-    this.graphics.push(new Pxl.Sprite(this));
+    this.graphics.push(new Sprite(this));
     this.graphics[0].play("terminal");
 
-    this.lightBulb = new Pxl.Sprite(this);
+    this.lightBulb = new Sprite(this);
     this.lightBulb.offset.x = 2;
     this.lightBulb.offset.y = 2;
     this.lightBulb.play("lightBulbGreen");

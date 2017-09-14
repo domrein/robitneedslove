@@ -1,8 +1,11 @@
-"use strict";
+import Game from "../../../pxl/core/Game.js";
+import Canvas2dRenderer from "../../../pxl/core/Canvas2dRenderer.js";
 
-class Game extends Pxl.Game {
+import PlayScene from "./scene/PlayScene.js";
+
+export default class _Game extends Game {
   constructor() {
-    super(320, 240, PlayScene, Pxl.Canvas2dRenderer, "canvas");
+    super(320, 240, PlayScene, Canvas2dRenderer, "canvas");
 
     this.score = 0;
 

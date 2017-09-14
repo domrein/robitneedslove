@@ -3,17 +3,19 @@ Paul Milham
 7/29/17
 */
 
-"use strict";
+import Actor from "../../../pxl/actor/Actor.js";
+import Body from "../../../pxl/actor/Body.js";
+import ColorRectangle from "../../../pxl/actor/ColorRectangle.js";
 
-class Mote extends Pxl.Actor {
+export default class Mote extends Actor {
   constructor(scene) {
     super(scene);
 
-    this.body = new Pxl.Body();
+    this.body = new Body();
     this.body.velocity.m = Math.random() * .05;
     this.body.velocity.d = Math.PI * .5;
 
-    this.graphics.push(new Pxl.ColorRectangle(this));
+    this.graphics.push(new ColorRectangle(this));
     this.graphics[0].color = "#6E626A";
     this.graphics[0].width = this.graphics[0].height = Math.round(Math.random() * 1 + 1);
     this.graphics[0].alpha = 0;

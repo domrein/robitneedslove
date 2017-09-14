@@ -3,13 +3,17 @@ Paul Milham
 7/30/17
 */
 
-"use strict";
+import Actor from "../../../pxl/actor/Actor.js";
+import Body from "../../../pxl/actor/Body.js";
+import Sprite from "../../../pxl/actor/Sprite.js";
 
-class Bat extends Pxl.Actor {
+import Battery from "./Battery.js";
+
+export default class Bat extends Actor {
   constructor(scene) {
     super(scene);
 
-    this.body = new Pxl.Body();
+    this.body = new Body();
     this.body.width = 16;
     this.body.height = 16;
     // move this to playscene?
@@ -26,7 +30,7 @@ class Bat extends Pxl.Actor {
     this.body.beacon.observe(this, "collided", this.onCollided);
     this.body.type = "enemy";
 
-    this.graphics.push(new Pxl.Sprite(this));
+    this.graphics.push(new Sprite(this));
     this.graphics[0].play("bat");
   }
 
