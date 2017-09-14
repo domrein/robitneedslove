@@ -3,9 +3,9 @@ Paul Milham
 7/29/17
 */
 
-import Actor from "../../../pxl/actor/Actor.js";
-import Body from "../../../pxl/actor/Body.js";
-import ColorRectangle from "../../../pxl/actor/ColorRectangle.js";
+import Actor from "../pxl/actor/Actor.js";
+import Body from "../pxl/actor/Body.js";
+import ColorRectangle from "../pxl/actor/ColorRectangle.js";
 
 export default class Mote extends Actor {
   constructor(scene) {

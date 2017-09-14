@@ -3,11 +3,11 @@ Paul Milham
 7/29/17
 */
 
-import Actor from "../../../pxl/actor/Actor.js";
-import Sprite from "../../../pxl/actor/Sprite.js";
-import Body from "../../../pxl/actor/Body.js";
-import ColorRectangle from "../../../pxl/actor/ColorRectangle.js";
-import Rectangle from "../../../pxl/core/Rectangle.js";
+import Actor from "../pxl/actor/Actor.js";
+import Sprite from "../pxl/actor/Sprite.js";
+import Body from "../pxl/actor/Body.js";
+import ColorRectangle from "../pxl/actor/ColorRectangle.js";
+import Rectangle from "../pxl/core/Rectangle.js";
 
 import Laser from "./Laser.js";
 import Battery from "./Battery.js";

@@ -3,9 +3,9 @@ Paul Milham
 7/30/17
 */
 
-import Actor from "../../../pxl/actor/Actor.js";
-import Body from "../../../pxl/actor/Body.js";
-import Sprite from "../../../pxl/actor/Sprite.js";
+import Actor from "../pxl/actor/Actor.js";
+import Body from "../pxl/actor/Body.js";
+import Sprite from "../pxl/actor/Sprite.js";
 
 import Battery from "./Battery.js";
 

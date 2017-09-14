@@ -3,10 +3,10 @@ Paul Milham
 7/30/17
 */
 
-import Actor from "../../../pxl/actor/Actor.js";
-import Body from "../../../pxl/actor/Body.js";
-import Vector from "../../../pxl/core/Vector.js";
-import Sprite from "../../../pxl/actor/Sprite.js";
+import Actor from "../pxl/actor/Actor.js";
+import Body from "../pxl/actor/Body.js";
+import Vector from "../pxl/core/Vector.js";
+import Sprite from "../pxl/actor/Sprite.js";
 
 export default class Battery extends Actor {
   constructor(scene) {

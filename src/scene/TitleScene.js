@@ -3,12 +3,12 @@ Paul Milham
 3/26/16
 */
 
-import Scene from "../../../pxl/scene/Scene.js";
-import Actor from "../../../pxl/actor/Actor.js";
-import ColorRectangle from "../../../pxl/actor/ColorRectangle.js";
-import Body from "../../../pxl/actor/Body.js";
-import Sprite from "../../../pxl/actor/Sprite.js";
-import Text from "../../../pxl/actor/Text.js";
+import Scene from "./pxl/scene/Scene.js";
+import Actor from "./pxl/actor/Actor.js";
+import ColorRectangle from "./pxl/actor/ColorRectangle.js";
+import Body from "./pxl/actor/Body.js";
+import Sprite from "./pxl/actor/Sprite.js";
+import Text from "./pxl/actor/Text.js";
 
 import Terminal from "./Terminal.js";
 import Mote from "./Mote.js";

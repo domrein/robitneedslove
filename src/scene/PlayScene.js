@@ -3,11 +3,11 @@ Paul Milham
 7/29/17
 */
 
-import Scene from "../../../pxl/scene/Scene.js";
-import Actor from "../../../pxl/actor/Actor.js";
-import Body from "../../../pxl/actor/Body.js";
-import Sprite from "../../../pxl/actor/Sprite.js";
-import Text from "../../../pxl/actor/Text.js";
+import Scene from "../pxl/scene/Scene.js";
+import Actor from "../pxl/actor/Actor.js";
+import Body from "../pxl/actor/Body.js";
+import Sprite from "../pxl/actor/Sprite.js";
+import Text from "../pxl/actor/Text.js";
 
 import Terminal from "../actor/Terminal.js";
 import Mote from "../actor/Mote.js";
